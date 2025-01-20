@@ -59,6 +59,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
         .menu-item .icon {
             display: flex;
             align-items: center;
@@ -96,19 +97,20 @@
         <div class="header" style="height: 140px; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">
             <h1 style="font-size: 14px; font-weight: 700;">AL-BARZANJI</h1>
         </div>
-    
+
         <div class="" style="display: flex; justify-content: center; align-items: center; padding: 0 80px;">
             <div class="card-container" style="position: absolute; top: 70px; width: 85%; padding: 14px 20px;">
                 <img src="img/bismi.png" alt="" style="width: 240px; margin-bottom: 10px;">
                 <h2 style="margin-top: -4px; margin-bottom: -12px; font-size: 20px;">Majlis Barzanji</h2>
-                <p style="display:block; color: #0b4d40; font-weight: 600; margin-bottom: 20px; font-size: 12px;">AL-IJTIMA'-MONPERGUB
+                <p style="display:block; color: #0b4d40; font-weight: 600; margin-bottom: 20px; font-size: 12px;">
+                    AL-IJTIMA'-MONPERGUB
                 </p>
                 <img src="img/bg.svg" alt="" style="width: 220px; position: absolute; right: -10px; bottom: 0;">
             </div>
         </div>
     </div>
 
-    
+
     <div class="menu-container" style="margin-top: 40px;">
         <div class="">
             <h4 style="color: #6f6f6f;">Daftar Menu</h4>
@@ -116,7 +118,8 @@
         </div>
         <a href="details.html#bagian1" style="text-decoration: none;">
             <div class="menu-item">
-                <div class="icon" style="display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
+                <div class="icon"
+                    style="display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
                     <p>1</p>
                     <img src="img/iconsayat.png" alt="" style="width: 38px; position: absolute; ">
                 </div>
@@ -129,7 +132,8 @@
         </a>
         <a href="details.html#bagian2" style="text-decoration: none;">
             <div class="menu-item">
-                <div class="icon" style="display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
+                <div class="icon"
+                    style="display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
                     <p>2</p>
                     <img src="img/iconsayat.png" alt="" style="width: 38px; position: absolute; ">
                 </div>
@@ -142,7 +146,8 @@
         </a>
         <a href="details.html#bagian3" style="text-decoration: none;">
             <div class="menu-item">
-                <div class="icon" style="display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
+                <div class="icon"
+                    style="display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
                     <p>3</p>
                     <img src="img/iconsayat.png" alt="" style="width: 38px; position: absolute; ">
                 </div>
@@ -155,7 +160,8 @@
         </a>
         <a href="details.html#bagian4" style="text-decoration: none;">
             <div class="menu-item">
-                <div class="icon" style="display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
+                <div class="icon"
+                    style="display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
                     <p>4</p>
                     <img src="img/iconsayat.png" alt="" style="width: 48px; position: absolute; ">
                 </div>
@@ -168,7 +174,8 @@
         </a>
         <a href="#" style="text-decoration: none;">
             <div class="menu-item">
-                <div class="icon" style="display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
+                <div class="icon"
+                    style="display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
                     <p>5</p>
                     <img src="img/iconsayat.png" alt="" style="width: 38px; position: absolute; ">
                 </div>
@@ -209,7 +216,8 @@
         </a>
         <a href="tentang.html" style="text-decoration: none;">
             <div class="menu-item">
-                <div class="icon" style="display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
+                <div class="icon"
+                    style="display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
                     <p>8</p>
                     <img src="img/iconsayat.png" alt="" style="width: 38px; position: absolute; ">
                 </div>
@@ -220,8 +228,19 @@
                 <img src="img/logobz.png" alt="" style="width: 40px;">
             </div>
         </a>
-        
+
     </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then((registration) => {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                })
+                .catch((error) => {
+                    console.log('Service Worker registration failed:', error);
+                });
+        }
+    </script>
 </body>
 
 </html>
