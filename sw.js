@@ -62,7 +62,7 @@ const STATIC_ASSETS = [
     '/khtbnikah.html',
     '/talkin.html',
     '/zikirdoa.html',
-    '/sflas.html',
+    '/home.html',
     '/script.js',
     '/img/bg-head.svg',
     '/img/bg.svg',
