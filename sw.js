@@ -59,6 +59,10 @@ const STATIC_ASSETS = [
     '/index.html',
     '/details.html',
     '/tentang.html',
+    '/khtbnikah.html',
+    '/talkin.html',
+    '/zikirdoa.html',
+    '/sflas.html',
     '/script.js',
     '/img/bg-head.svg',
     '/img/bg.svg',
@@ -71,6 +75,7 @@ const STATIC_ASSETS = [
     '/img/icon-plus.png',
     '/img/iconsayat.png',
     '/img/logobz.png',
+    '/img/bg-screen.png',
 ];
 
 async function preChache() {
