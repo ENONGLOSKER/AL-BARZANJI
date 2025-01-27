@@ -100,25 +100,30 @@
             width: 80%;
             border-radius: 12px;
         }
+
         .modal-content h2 {
             color: #03644F;
         }
-        form{
+
+        form {
             display: flex;
             flex-direction: column;
             justify-content: center;
             gap: 15px;
         }
-        form input{
+
+        form input {
             padding: 12px 15px;
             border-radius: 8px;
             border: 2px solid #aaaaaa;
             font-size: 14px;
         }
-        form label{
+
+        form label {
             color: #000;
         }
-        form button{
+
+        form button {
             padding: 12px 15px;
             border-radius: 8px;
             border: none;
@@ -210,63 +215,130 @@
     </div>
     <div class="menu-container">
         <span style="margin: 20px 0; color: #aaaaaa; display: inline-block;">Jadwal Berikutnya</span>
-        <div class="menu-item">
-            <div class="bagian2" id="bagian2"
-                style="display: flex; justify-content: center; flex-direction: column; align-items: center; gap: 12px; width: 100%; padding: 5PX;">
+        <div class="items" id="items">
 
-                <div style="display: flex; justify-content: start; align-items: center; gap: 12px; width: 100%;">
-                    <div class="loc" style="background-color: #FEAC56; padding: 4px; border-radius: 8px;">
-                        <img src="img/logobz.png" alt="" style="width: 40px;">
-                    </div>
-                    <div class=""
-                        style="display: flex; flex-direction: column; justify-content: center; align-items: start;">
-                        <span style="margin-bottom: -14px; margin-top: 22px; font-size: 14px; color: #0A8362;">Lokasi
-                            Rumah
-                        </span>
-                        <h4>Saipul Adnan, QH, S.Pd</h4>
-                    </div>
+            <div class="menu-item">
+                <div class="bagian2" id="bagian2"
+                    style="display: flex; justify-content: center; flex-direction: column; align-items: center; gap: 12px; width: 100%; padding: 5PX;">
+
+                    <div style="display: flex; justify-content: start; align-items: center; gap: 12px; width: 100%;">
+                        <div class="loc" style="background-color: #FEAC56; padding: 4px; border-radius: 8px;">
+                            <img src="img/logobz.png" alt="" style="width: 40px;">
+                        </div>
+                        <div class="" style="display: flex; flex-direction: column; justify-content: center; align-items: start;">
+                            <span style="margin-bottom: -14px; margin-top: 22px; font-size: 14px; color: #0A8362;">Lokasi
+                                Rumah
+                            </span>
+                            <h4>Saipul Adnan, QH, S.Pd</h4>
+                            </div>
+                            </div>
+
+                    <div
+                        style="background-color: rgb(235, 235, 235); display: flex; justify-content: space-around; align-items: center; gap: 12px; width: 100%; border-radius: 12px;">
+                        <h5>
+                            <span style="font-size: 14px; color: #888; font-weight: 100; line-height: 32px; ">Tanggal</span>
+                            <br>
+                            29 Agustus 2025
+                            </h5>
+                            <h5>
+                            <span style="font-size: 14px; color: #888; font-weight: 100; line-height: 32px; ">Lokasi</span>
+                            <br>
+                            Dasan Bangket
+                            </h5>
+                            </div>
+
                 </div>
 
-                <div
-                    style="background-color: rgb(235, 235, 235); display: flex; justify-content: space-around; align-items: center; gap: 12px; width: 100%; border-radius: 12px;">
-                    <h5>
-                        <span style="font-size: 14px; color: #888; font-weight: 100; line-height: 32px; ">Tanggal</span>
-                        <br>
-                        29 Agustus 2025
-                    </h5>
-                    <h5>
-                        <span style="font-size: 14px; color: #888; font-weight: 100; line-height: 32px; ">Lokasi</span>
-                        <br>
-                        Dasan Bangket
-                    </h5>
-                </div>
 
             </div>
-
-
-        </div>
+            </div>
     </div>
 
+    <script src="modals.js"> </script>
+    <script src="api.js"> </script>
     <script>
-        // JavaScript to handle modal
-        const modal = document.getElementById("myModal");
-        const btn = document.getElementById("openModal");
-        const span = document.getElementById("closeModal");
+            function fetchSchedules() {
+                fetch('https://api-service-jadwal-barzanji.vercel.app/items/')
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error('Gagal memuat data.');
+                        }
+                        return response.json();
+                    })
+                    .then((schedules) => {
+                        const items = document.getElementById('items');
+                        items.innerHTML = ''; // Hapus konten sebelumnya
 
-                                                                                            btn.onclick = function () {
-                                                                                                modal.style.display = "block";
-                                                                                            }
+                        schedules.forEach((schedule) => {
+                            items.innerHTML += `
+                            <div class="menu-item">
+                <div class="bagian2" id="bagian2" style="display: flex; justify-content: center; flex-direction: column; align-items: center; gap: 12px; width: 100%; padding: 5PX;">
+                    <div style="display: flex; justify-content: start; align-items: center; gap: 12px; width: 100%;">
+                        <div class="loc" style="background-color: #FEAC56; padding: 4px; border-radius: 8px;">
+                            <img src="img/logobz.png" alt="" style="width: 40px;">
+                        </div>
+                        <div class="" style="display: flex; flex-direction: column; justify-content: center; align-items: start;">
+                            <span style="margin-bottom: -14px; margin-top: 22px; font-size: 14px; color: #0A8362;">
+                                Nama Anggota
+                            </span>
+                            <h4>${schedule.nama}</h4>
+                        </div>
+                    </div>
+        
+                    <div style="background-color: rgb(235, 235, 235); display: flex; justify-content: space-around; align-items: center; gap: 12px; width: 100%; border-radius: 12px;">
+                        <h5>
+                            <span style="font-size: 14px; color: #888; font-weight: 100; line-height: 32px;">Tanggal</span>
+                            <br>
+                            ${schedule.tanggal}
+                        </h5>
+                        <h5>
+                            <span style="font-size: 14px; color: #888; font-weight: 100; line-height: 32px;">Alamat</span>
+                            <br>
+                            ${schedule.alamat}
+                        </h5>
+                        <button onclick="deleteSchedule(${schedule.id})" style="background-color: #FF5E5E; color: white; border: none; padding: 5px 10px; border-radius: 5px;">
+                            Hapus
+                        </button>
+                    </div>
+                </div>
+            </div>
+                        `;
+                    });
+                })
+                .catch((error) => {
+                    console.error(error);
+                    alert(error.message);
+                });
+        }
 
-                                                                                            span.onclick = function () {
-                                                                                                modal.style.display = "none";
-                                                                                            }
-
-                                                                                            window.onclick = function (event) {
-                                                                                                if (event.target == modal) {
-                                                                                                    modal.style.display = "none";
-                }
-                                                                                        }
+            // Panggil fetchSchedules saat halaman dimuat
+            window.onload = fetchSchedules;
+        </script>
+    <script>
+        function deleteSchedule(id) {
+            if (confirm('Apakah Anda yakin ingin menghapus jadwal ini?')) {
+                fetch(`https://api-service-jadwal-barzanji.vercel.app/items/${id}`, {
+                    method: 'DELETE',
+                })
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error('Gagal menghapus data.');
+                        }
+                        return response.json();
+                    })
+                    .then(() => {
+                        alert('Jadwal berhasil dihapus.');
+                        fetchSchedules(); // Perbarui daftar jadwal
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                        alert(error.message);
+                    });
+            }
+        }
     </script>
+
+
 </body>
 
 </html>
