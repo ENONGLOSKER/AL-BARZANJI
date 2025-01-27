@@ -63,6 +63,7 @@ const STATIC_ASSETS = [
     '/talkin.html',
     '/zikirdoa.html',
     '/home.html',
+    '/jadwal.html',
     '/script.js',
     '/img/bg-head.svg',
     '/img/bg.svg',
