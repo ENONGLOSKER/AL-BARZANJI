@@ -14,7 +14,7 @@ document.getElementById('scheduleForm').addEventListener('submit', function (e) 
     fetch('http://elqdev.mooo.com/api/api.php/', {
         method: 'POST',
         headers: {
-
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({
             nama: nama,
