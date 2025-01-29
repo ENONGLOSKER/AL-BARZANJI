@@ -11,7 +11,7 @@ document.getElementById('scheduleForm').addEventListener('submit', function (e) 
     // https://api-service-jadwal-barzanji.vercel.app/items/
     // http://barzanji.unaux.com/api.php/
     // http://localhost/api/api.php
-    fetch('http://elqdev.mooo.com/api/api.php/', {
+    fetch('/api/api.php/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -40,7 +40,7 @@ document.getElementById('scheduleForm').addEventListener('submit', function (e) 
 });
 
 function fetchSchedules() {
-    fetch('http://elqdev.mooo.com/api/api.php/')
+    fetch('/api/api.php/')
         .then((response) => {
             if (!response.ok) {
                 throw new Error('Gagal memuat data.');
@@ -104,7 +104,7 @@ window.onload = fetchSchedules;
 
 function deleteSchedule(id) {
     if (confirm('Apakah Anda yakin ingin menghapus jadwal ini?')) {
-        fetch(`http://elqdev.mooo.com/api/api.php/${id}`, {
+        fetch(`/api/api.php/${id}`, {
             method: 'DELETE',
         })
             .then((response) => {

@@ -1,0 +1,11 @@
+{
+    "routes": [
+        {
+            "src": "/api/(.*)",
+            "dest": "http://elqdev.mooo.com/api/$1",
+            "headers": {
+                "Access-Control-Allow-Origin": "*"
+            }
+        }
+    ]
+}
