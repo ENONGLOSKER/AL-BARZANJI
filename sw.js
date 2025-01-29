@@ -77,6 +77,7 @@ const STATIC_ASSETS = [
     '/img/iconsayat.png',
     '/img/logobz.png',
     '/img/bg-screen.png',
+    '/img/icon-jadwal.svg',
 ];
 
 async function preChache() {
