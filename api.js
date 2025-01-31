@@ -1,4 +1,3 @@
-
 document.getElementById('scheduleForm').addEventListener('submit', function (e) {
     e.preventDefault(); // Mencegah reload halaman
 
@@ -7,14 +6,17 @@ document.getElementById('scheduleForm').addEventListener('submit', function (e) 
     const tanggal = document.getElementById('date').value;
     const alamat = document.getElementById('location').value;
 
+    // Validasi form
+    if (!nama || !tanggal || !alamat) {
+        return; // Tidak melakukan apapun jika ada field yang kosong
+    }
+
     // Kirim data ke server menggunakan Fetch API
-    // https://api-service-jadwal-barzanji.vercel.app/items/
-    // http://barzanji.unaux.com/api.php/
-    // http://localhost/api/api.php
-    fetch('http://elqdev.mooo.com/api/api.php/', {
+    const apiUrl = 'http://elqdev.mooo.com/api/api.php/';
+    fetch(apiUrl, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify({
             nama: nama,
@@ -28,14 +30,13 @@ document.getElementById('scheduleForm').addEventListener('submit', function (e) 
             }
             return response.json();
         })
-        .then((data) => {
-            alert('Jadwal berhasil disimpan!');
-            modal.style.display = 'none'; // Tutup modal
-            fetchSchedules(); // Perbarui daftar jadwal
+        .then(() => {
+            modal.style.display = 'none'; // Tutup modal jika ada
+            fetchSchedules(); // Perbarui daftar jadwal tanpa reload halaman
         })
         .catch((error) => {
-            console.error(error);
-            alert(error.message);
+            console.error(error); // Log error di konsol
+            alert(`Error: ${error.message}`); // Menampilkan alert untuk error
         });
 });
 
@@ -93,33 +94,29 @@ function fetchSchedules() {
             });
         })
         .catch((error) => {
-            console.error(error);
-            alert(`Tidak ada Internet, data jadwal tidak dapat dimuat (${error.message})`);
+            console.error(error); // Log error di konsol
+            alert(`Error: ${error.message}`); // Menampilkan alert untuk error
         });
 }
 
 // Panggil fetchSchedules saat halaman dimuat
 window.onload = fetchSchedules;
 
-
 function deleteSchedule(id) {
-    if (confirm('Apakah Anda yakin ingin menghapus jadwal ini?')) {
-        fetch(`http://elqdev.mooo.com/api/api.php/${id}`, {
-            method: 'DELETE',
+    fetch(`http://elqdev.mooo.com/api/api.php/${id}`, {
+        method: 'DELETE',
+    })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Gagal menghapus data.');
+            }
+            return response.json();
         })
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error('Gagal menghapus data.');
-                }
-                return response.json();
-            })
-            .then(() => {
-                alert('Jadwal berhasil dihapus.');
-                fetchSchedules(); // Perbarui daftar jadwal
-            })
-            .catch((error) => {
-                console.error(error);
-                alert(error.message);
-            });
-    }
+        .then(() => {
+            fetchSchedules(); // Perbarui daftar jadwal
+        })
+        .catch((error) => {
+            console.error(error); // Log error di konsol
+            alert(`Error: ${error.message}`); // Menampilkan alert untuk error
+        });
 }

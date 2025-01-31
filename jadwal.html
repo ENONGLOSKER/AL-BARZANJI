@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,26 +22,33 @@
             color: white;
             padding: 20px;
             text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
         }
 
         .header h1 {
             margin: 12px 0 0 0;
             font-size: 24px;
+            font-weight: 700;
+            transform: translateY(-5px);
         }
 
         .header img {
             max-width: 100%;
             height: auto;
+            width: 28px;
         }
 
         .card-container {
             background-image: linear-gradient(-30deg, #0A8362, #0B2323);
             color: #000;
             /* padding: 20px;
-      text-align: center; */
+            text-align: center; */
             border-radius: 22px;
-            /* max-width: 600px; */
-            /* width: 70%; */
+            /* max-width: 600px;
+            width: 70%; */
             box-shadow: 0 4px 15px rgba(242, 206, 87, 0.71);
         }
 
@@ -135,6 +141,11 @@
             margin-bottom: 20px;
         }
 
+        form button:active {
+            background-color: #61E89C;
+            box-shadow: 2px 8px 20px #61E89C; /* Style when button is pressed */
+        }
+
         .close {
             color: #aaa;
             float: right;
@@ -148,14 +159,15 @@
             text-decoration: none;
             cursor: pointer;
         }
+        
     </style>
 </head>
-
 <body>
     <div class="" style="position: relative;">
-        <div class="header" style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+        <div class="header">
             <a href="home.html" style="text-decoration: none;">
-                <img src="img/icon-panah.svg" alt="" style="width: 28px;"></a>
+                <img src="img/icon-panah.svg" alt="" style="width: 28px;">
+                </a>
             <div class="" style="width: 100%; text-align: center; margin-right: 50px;">
                 <h1 style="font-size: 16px; font-weight: 700; transform: translateY(-5px);">JADWAL</h1>
             </div>
@@ -175,23 +187,26 @@
                     </div>
                 </div>
                 <div class="" style="display: flex; justify-content: space-between; align-items: center;">
+                
                     <h5>
                         <span
-                            style="color: #61E89C; font-size: 12px; font-weight: 100; line-height: 22px;">Tanggal</span>
+                            style="color: #61E89C; font-size: 12px; font-weight: 100; line-height: 22px;">Tanggal Hari ini</span>
                         <br>
-                        8 Agustus 2022
+                        <span class="current-date" id="current-date" style="font-size: 20px;"></span>
                     </h5>
                     <span
                         style="background-color: #ffffff; width: 2px; height: 30px; transform: translateY(8px);"></span>
                     <h5>
                         <span
-                            style="color: #61E89C; font-size: 12px; font-weight: 100; line-height: 22px;">Lokasi</span>
+                            style="color: #61E89C; font-size: 12px; font-weight: 100; line-height: 22px;">Waktu Hari ini</span>
                         <br>
-                        Dasan Bangket
+                        <span class="current-time" id="current-time" style="font-size: 20px;"></span>
                     </h5>
+                    
                     <!-- btn CREATE jadwal -->
-                    <a id="openModal">
-                        <img src="img/icon-btnadd.svg" alt="" style="width: 50px; transform: translateY(12px);">
+                    <a id="openModal"
+                        style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50px; background-color: #FEAC56; box-shadow: 2px 8px 20px #FEAC56;">
+                        <img src="img/add.png" alt="" style="width: 20px; height: 20px;">
                     </a>
 
                     <!-- Modal -->
@@ -206,7 +221,7 @@
                                 <input type="date" id="date" name="date" placeholder="Tanggal Pelaksanaan" required>
                                 <label for="location">Lokasi:</label>
                                 <input type="text" id="location" name="location" placeholder="lokasi" required>
-                                <button type="submit">Simpan</button>
+                                <button type="submit" id="btn-simpan">Simpan</button>
                             </form>
                         </div>
                     </div>
@@ -255,12 +270,28 @@
 
 
             </div> -->
-            
-            </div>
+        </div>
     </div>
 
     <script src="modals.js"> </script>
     <script src="api.js"> </script>
-</body>
+    <script>
+        setInterval(function () {
+            var date = new Date();
+            document.getElementById('current-date').textContent = date.toLocaleDateString('id-ID');
+            document.getElementById('current-time').textContent = date.toLocaleTimeString('id-ID');
+        }, 1000);
 
+        function displayCurrentDateAndTime() {
+            const currentDate = new Date();
+            const date = currentDate.getDate() + ' ' + currentDate.getMonthName('id-ID') + ' ' + currentDate.getFullYear();
+            const time = currentDate.getHours() + ':' + currentDate.getMinutes() + ':' + currentDate.getSeconds();
+
+            document.querySelector('.current-date').innerHTML = date;
+            document.querySelector('.current-time').innerHTML = time;
+        }
+
+        displayCurrentDateAndTime();
+    </script>
+</body>
 </html>
