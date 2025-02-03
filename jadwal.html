@@ -328,7 +328,7 @@
             const apiUrl = "https://barzanji.kesug.com/api.php/?i=1";
             const itemsContainer = document.getElementById("items");
 
-            fetch(apiUrl)
+            fetch(apiUrl, { mode: "no-cors" })
                 .then(response => response.json())
                 .then(data => {
                     itemsContainer.innerHTML = ""; // Kosongkan kontainer sebelum menambahkan elemen baru
