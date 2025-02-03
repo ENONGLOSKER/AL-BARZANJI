@@ -12,7 +12,7 @@ document.getElementById('scheduleForm').addEventListener('submit', function (e) 
     }
 
     // Kirim data ke server menggunakan Fetch API
-    const apiUrl = 'http://elqdev.mooo.com/api/api.php/';
+    const apiUrl = 'https://barzanji.kesug.com/api.php/';
     fetch(apiUrl, {
         method: 'POST',
         headers: {
@@ -41,7 +41,7 @@ document.getElementById('scheduleForm').addEventListener('submit', function (e) 
 });
 
 function fetchSchedules() {
-    fetch('http://elqdev.mooo.com/api/api.php/')
+    fetch('https://barzanji.kesug.com/api.php/')
         .then((response) => {
             if (!response.ok) {
                 throw new Error('Gagal memuat data.');
@@ -103,7 +103,7 @@ function fetchSchedules() {
 window.onload = fetchSchedules;
 
 function deleteSchedule(id) {
-    fetch(`http://elqdev.mooo.com/api/api.php/${id}`, {
+    fetch(`https://barzanji.kesug.com/api.php/${id}`, {
         method: 'DELETE',
     })
         .then((response) => {
