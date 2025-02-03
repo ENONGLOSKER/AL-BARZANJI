@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -143,7 +144,8 @@
 
         form button:active {
             background-color: #61E89C;
-            box-shadow: 2px 8px 20px #61E89C; /* Style when button is pressed */
+            box-shadow: 2px 8px 20px #61E89C;
+            /* Style when button is pressed */
         }
 
         .close {
@@ -159,15 +161,15 @@
             text-decoration: none;
             cursor: pointer;
         }
-        
     </style>
 </head>
+
 <body>
     <div class="" style="position: relative;">
         <div class="header">
             <a href="home.html" style="text-decoration: none;">
                 <img src="img/icon-panah.svg" alt="" style="width: 28px;">
-                </a>
+            </a>
             <div class="" style="width: 100%; text-align: center; margin-right: 50px;">
                 <h1 style="font-size: 16px; font-weight: 700; transform: translateY(-5px);">JADWAL</h1>
             </div>
@@ -187,22 +189,22 @@
                     </div>
                 </div>
                 <div class="" style="display: flex; justify-content: space-between; align-items: center;">
-                
+
                     <h5>
-                        <span
-                            style="color: #61E89C; font-size: 12px; font-weight: 100; line-height: 22px;">Tanggal Hari ini</span>
+                        <span style="color: #61E89C; font-size: 12px; font-weight: 100; line-height: 22px;">Tanggal Hari
+                            ini</span>
                         <br>
                         <span class="current-date" id="current-date" style="font-size: 20px;"></span>
                     </h5>
                     <span
                         style="background-color: #ffffff; width: 2px; height: 30px; transform: translateY(8px);"></span>
                     <h5>
-                        <span
-                            style="color: #61E89C; font-size: 12px; font-weight: 100; line-height: 22px;">Waktu Hari ini</span>
+                        <span style="color: #61E89C; font-size: 12px; font-weight: 100; line-height: 22px;">Waktu Hari
+                            ini</span>
                         <br>
                         <span class="current-time" id="current-time" style="font-size: 20px;"></span>
                     </h5>
-                    
+
                     <!-- btn CREATE jadwal -->
                     <a id="openModal"
                         style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50px; background-color: #FEAC56; box-shadow: 2px 8px 20px #FEAC56;">
@@ -231,51 +233,145 @@
     </div>
     <div class="menu-container">
         <span style="margin: 20px 0; color: #aaaaaa; display: inline-block;">Daftar Jadwal</span>
+        <!-- tampilakn semua data -->
         <div class="items" id="items">
-
-            <!-- <div class="menu-item">
+            <div class="menu-item">
                 <div class="bagian2" id="bagian2"
                     style="display: flex; justify-content: center; flex-direction: column; align-items: center; gap: 12px; width: 100%; padding: 5px;">
 
                     <div style="display: flex; justify-content: start; align-items: center; gap: 12px; width: 100%;">
-                        <div class="loc" style="background-color: #61E89C; padding: 3px; border-radius: 8px; box-shadow: 2px 2px 12px #61E89C;">
+                        <div class="loc"
+                            style="background-color: #61E89C; padding: 3px; border-radius: 8px; box-shadow: 2px 2px 12px #61E89C;">
                             <img src="img/logobz.png" alt="" style="width: 40px; transform: translateY(2px);">
                         </div>
-                        <div class="" style="display: flex; flex-direction: column; justify-content: center; align-items: start;">
+                        <div class=""
+                            style="display: flex; flex-direction: column; justify-content: center; align-items: start;">
                             <span style="margin-bottom: -14px; margin-top: 22px; font-size: 14px; color: #0A8362;">
                                 Lokasi Rumah
                             </span>
                             <h4 style="font-size: 15px;">Saipul Adnan, QH, S.Pd</h4>
-                            </div>
-                            </div>
+                        </div>
+                    </div>
 
                     <div class="" style="display: flex; flex-direction: column; gap: 12px; width: 100%;">
                         <div
                             style="background-color: rgb(242, 242, 242); display: flex; justify-content: space-around; align-items: center; gap: 12px; width: 100%; border-radius: 12px;">
                             <h5>
-                                <span style="font-size: 14px; color: #888; font-weight: 100; line-height: 32px; ">Tanggal</span>
+                                <span
+                                    style="font-size: 14px; color: #888; font-weight: 100; line-height: 32px; ">Tanggal</span>
                                 <br>
                                 29 Agustus 2025
                             </h5>
                             <h5>
-                                <span style="font-size: 14px; color: #888; font-weight: 100; line-height: 32px; ">Lokasi</span>
+                                <span
+                                    style="font-size: 14px; color: #888; font-weight: 100; line-height: 32px; ">Lokasi</span>
                                 <br>
                                 Dasan Bangket
                             </h5>
                         </div>
                         <button
                             style="width: 100%; box-shadow: 4px 2px 15px #f8bd7d; background-color: #ff2727; border: none; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: 600;">Terlaksana</button>
-                        </div>
+                    </div>
                 </div>
 
 
-            </div> -->
+            </div>
+
+            <div class="menu-item">
+                <div class="bagian2" id="bagian2"
+                    style="display: flex; justify-content: center; flex-direction: column; align-items: center; gap: 12px; width: 100%; padding: 5px;">
+
+                    <div style="display: flex; justify-content: start; align-items: center; gap: 12px; width: 100%;">
+                        <div class="loc"
+                            style="background-color: #61E89C; padding: 3px; border-radius: 8px; box-shadow: 2px 2px 12px #61E89C;">
+                            <img src="img/logobz.png" alt="" style="width: 40px; transform: translateY(2px);">
+                        </div>
+                        <div class=""
+                            style="display: flex; flex-direction: column; justify-content: center; align-items: start;">
+                            <span style="margin-bottom: -14px; margin-top: 22px; font-size: 14px; color: #0A8362;">
+                                Lokasi Rumah
+                            </span>
+                            <h4 style="font-size: 15px;">Saipul Adnan, QH, S.Pd</h4>
+                        </div>
+                    </div>
+
+                    <div class="" style="display: flex; flex-direction: column; gap: 12px; width: 100%;">
+                        <div
+                            style="background-color: rgb(242, 242, 242); display: flex; justify-content: space-around; align-items: center; gap: 12px; width: 100%; border-radius: 12px;">
+                            <h5>
+                                <span
+                                    style="font-size: 14px; color: #888; font-weight: 100; line-height: 32px; ">Tanggal</span>
+                                <br>
+                                29 Agustus 2025
+                            </h5>
+                            <h5>
+                                <span
+                                    style="font-size: 14px; color: #888; font-weight: 100; line-height: 32px; ">Lokasi</span>
+                                <br>
+                                Dasan Bangket
+                            </h5>
+                        </div>
+                        <button
+                            style="width: 100%; box-shadow: 4px 2px 15px #f8bd7d; background-color: #ff2727; border: none; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: 600;">Terlaksana</button>
+                    </div>
+                </div>
+
+
+            </div>
         </div>
     </div>
 
     <script src="modals.js"> </script>
-    <script src="api.js"> </script>
     <script>
+        // consum api
+        document.addEventListener("DOMContentLoaded", function () {
+            const apiUrl = "https://barzanji.kesug.com/api.php/?i=1";
+            const itemsContainer = document.getElementById("items");
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    itemsContainer.innerHTML = ""; // Kosongkan kontainer sebelum menambahkan elemen baru
+
+                    data.forEach(jadwal => {
+                        const item = document.createElement("div");
+                        item.classList.add("menu-item");
+                        item.innerHTML = `
+                    <div class="bagian2" style="display: flex; justify-content: center; flex-direction: column; align-items: center; gap: 12px; width: 100%; padding: 5px;">
+                        <div style="display: flex; justify-content: start; align-items: center; gap: 12px; width: 100%;">
+                            <div class="loc" style="background-color: #61E89C; padding: 3px; border-radius: 8px; box-shadow: 2px 2px 12px #61E89C;">
+                                <img src="img/logobz.png" alt="" style="width: 40px; transform: translateY(2px);">
+                            </div>
+                            <div class="" style="display: flex; flex-direction: column; justify-content: center; align-items: start;">
+                                <span style="margin-bottom: -14px; margin-top: 22px; font-size: 14px; color: #0A8362;">Lokasi Rumah</span>
+                                <h4 style="font-size: 15px;">${jadwal.nama}</h4>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 12px; width: 100%;">
+                            <div style="background-color: rgb(242, 242, 242); display: flex; justify-content: space-around; align-items: center; gap: 12px; width: 100%; border-radius: 12px;">
+                                <h5>
+                                    <span style="font-size: 14px; color: #888; font-weight: 100; line-height: 32px;">Tanggal</span>
+                                    <br>
+                                    ${jadwal.tanggal}
+                                </h5>
+                                <h5>
+                                    <span style="font-size: 14px; color: #888; font-weight: 100; line-height: 32px;">Lokasi</span>
+                                    <br>
+                                    ${jadwal.lokasi}
+                                </h5>
+                            </div>
+                            <button style="width: 100%; box-shadow: 4px 2px 15px #f8bd7d; background-color: #ff2727; border: none; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: 600;">Terlaksana</button>
+                        </div>
+                    </div>
+                `;
+                        itemsContainer.appendChild(item);
+                    });
+                })
+                .catch(error => console.error("Error fetching data:", error));
+        });
+
+
+        // header
         setInterval(function () {
             var date = new Date();
             document.getElementById('current-date').textContent = date.toLocaleDateString('id-ID');
@@ -294,4 +390,5 @@
         displayCurrentDateAndTime();
     </script>
 </body>
+
 </html>
